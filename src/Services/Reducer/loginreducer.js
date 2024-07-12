@@ -4,6 +4,7 @@ import React from 'react'
 const initialState = {
   user: null,
   error: null,
+  isReg : false,
   isSuc : false,
   isLoading: false,
 }
@@ -17,7 +18,8 @@ function loginreducer(state = initialState, action) {
         ...state,
         isLoading: true,
         err: null,
-        isSuc: true,
+        isSuc: false,
+        isReg : true,
         user: action.payload,
       }
 
@@ -27,6 +29,7 @@ function loginreducer(state = initialState, action) {
         isLoading: false,
         error: action.payload,
         isSuc : false,
+        isReg : false,
       }
 
     case "LOGINSUC":
@@ -35,6 +38,7 @@ function loginreducer(state = initialState, action) {
         isLoading: true,
         error: null,
         isSuc : true,
+        isReg : false,
         user: action.payload,
       }
     case "LOGINERR":
@@ -42,8 +46,8 @@ function loginreducer(state = initialState, action) {
         ...state,
         user : null,
         isLoading: false,
-        error: action.payload,
         isSuc : false,
+        error: action.payload,
       }
 
     case "SIGNOUT" :
@@ -53,6 +57,7 @@ function loginreducer(state = initialState, action) {
         isLoading: false,
         error : null,
         isSuc : false,
+        isReg : false,
       }
     default:
       return state

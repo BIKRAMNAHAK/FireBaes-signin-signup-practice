@@ -9,7 +9,7 @@ import { SigninAsync } from '../../Services/Actions/loginAction'
 import { useNavigate } from 'react-router'
 
 function SignUp() {
-  const { isSuc, error } = useSelector(state => state.loginreducer)
+  const { isReg, error } = useSelector(state => state.loginreducer)
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -50,15 +50,15 @@ function SignUp() {
         email: '',
         password: '',
       })
-      setErrMsg('')
+      // setErrMsg('')
     }
   }
 
   useEffect(() => {
-    if (isSuc) {
+    if (isReg) {
       navigate('/Login')
     }
-  }, [isSuc, navigate])
+  }, [isReg, navigate])
 
   return (
     <Container>
